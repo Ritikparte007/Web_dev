@@ -1,0 +1,1111 @@
+<!-- File: templates/main/contact.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<!-- Contact Hero -->
+<section class="contact-hero-gradient text-white py-5 position-relative overflow-hidden">
+    <div class="hero-particles"></div>
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="hero-content" data-aos="fade-up">
+                    <span class="badge bg-light text-primary mb-3 px-3 py-2">Let's Connect</span>
+                    <h1 class="display-4 fw-bold mb-4">
+                        Get In <span class="text-gradient">Touch</span>
+                    </h1>
+                    <p class="lead mb-4 opacity-90">
+                        Ready to discuss your project? Get a free consultation 
+                        with quick response guaranteed. Let's bring your vision to life!
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <div class="response-badge">
+                            <i class="fas fa-clock me-2"></i>
+                            <span>10 min response</span>
+                        </div>
+                        <div class="response-badge">
+                            <i class="fas fa-handshake me-2"></i>
+                            <span>Free consultation</span>
+                        </div>
+                        <div class="response-badge">
+                            <i class="fas fa-shield-alt me-2"></i>
+                            <span>100% confidential</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Methods -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Choose Your Preferred Way</span>
+            <h2 class="section-title">How to Reach Me</h2>
+            <p class="section-description">Multiple ways to connect - pick what works best for you</p>
+        </div>
+        
+        <div class="row mb-5">
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-method-card whatsapp-card">
+                    <div class="contact-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h5 class="contact-title">WhatsApp</h5>
+                    <p class="contact-description">Fastest response - usually within 10 minutes</p>
+                    <div class="response-time">
+                        <span class="time-badge success">⚡ 10 mins</span>
+                    </div>
+                    <button class="btn btn-success btn-contact" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp me-2"></i> Chat Now
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-method-card phone-card">
+                    <div class="contact-icon phone-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h5 class="contact-title">Phone Call</h5>
+                    <p class="contact-description">Direct discussion about your project needs</p>
+                    <div class="response-time">
+                        <span class="time-badge primary">📞 30 mins</span>
+                    </div>
+                    <a href="tel:{{ contact_info.phone }}" class="btn btn-primary btn-contact">
+                        <i class="fas fa-phone me-2"></i> Call Now
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-method-card email-card">
+                    <div class="contact-icon email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5 class="contact-title">Email</h5>
+                    <p class="contact-description">Send detailed project requirements</p>
+                    <div class="response-time">
+                        <span class="time-badge warning">✉️ 2-4 hours</span>
+                    </div>
+                    <a href="mailto:{{ contact_info.email }}" class="btn btn-warning btn-contact">
+                        <i class="fas fa-envelope me-2"></i> Send Email
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="contact-method-card location-card">
+                    <div class="contact-icon location-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h5 class="contact-title">Location</h5>
+                    <p class="contact-description">{{ contact_info.address }}</p>
+                    <div class="response-time">
+                        <span class="time-badge info">📍 Local meetings</span>
+                    </div>
+                    <button class="btn btn-info btn-contact" onclick="openGoogleMaps()">
+                        <i class="fas fa-map me-2"></i> View Map
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form & Info -->
+<section class="section-padding bg-gradient-light">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-lg-8 mb-5" data-aos="fade-right">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3 class="form-title">Start Your Project</h3>
+                        <p class="form-subtitle">Tell us about your project and we'll get back to you with a detailed proposal</p>
+                    </div>
+                    
+                    <form method="post" class="contact-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name *</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    <label class="form-label">Email Address *</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-envelope input-icon"></i>
+                                        <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number *</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-phone input-icon"></i>
+                                        <input type="tel" name="phone" class="form-control" placeholder="+1 (555) 123-4567" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    <label class="form-label">Project Type</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-code input-icon"></i>
+                                        <select name="subject" class="form-control">
+                                            <option value="">Select project type</option>
+                                            <option value="website">Website Development</option>
+                                            <option value="game">Game Development</option>
+                                            <option value="mobile">Mobile App Development</option>
+                                            <option value="django">Django Web Application</option>
+                                            <option value="ecommerce">E-commerce Platform</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-group">
+                                <label class="form-label">Project Details *</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-edit input-icon textarea-icon"></i>
+                                    <textarea name="message" class="form-control" rows="6" 
+                                              placeholder="Describe your project requirements, budget range, timeline, and any specific features you need..." required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Budget Range</label>
+                                    <select name="budget" class="form-control">
+                                        <option value="">Select budget range</option>
+                                        <option value="under-1000">Under $1,000</option>
+                                        <option value="1000-5000">$1,000 - $5,000</option>
+                                        <option value="5000-10000">$5,000 - $10,000</option>
+                                        <option value="10000-plus">$10,000+</option>
+                                        <option value="discuss">Let's discuss</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Timeline</label>
+                                    <select name="timeline" class="form-control">
+                                        <option value="">Select timeline</option>
+                                        <option value="asap">ASAP (Rush job)</option>
+                                        <option value="1-week">Within 1 week</option>
+                                        <option value="2-weeks">2-4 weeks</option>
+                                        <option value="1-month">1-2 months</option>
+                                        <option value="flexible">Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg btn-submit">
+                            <i class="fas fa-rocket me-2"></i> 
+                            Send Project Request
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                        
+                        <p class="form-note mt-3">
+                            <i class="fas fa-lock me-2"></i>
+                            Your information is secure and will only be used to contact you about your project.
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="col-lg-4" data-aos="fade-left">
+                <!-- Contact Information Card -->
+                <div class="info-card mb-4">
+                    <h5 class="info-title">
+                        <i class="fas fa-address-book me-2"></i>
+                        Contact Information
+                    </h5>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon phone-bg">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <strong>Phone</strong>
+                            <a href="tel:{{ contact_info.phone }}" class="contact-link">
+                                {{ contact_info.phone }}
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon whatsapp-bg">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <strong>WhatsApp</strong>
+                            <a href="#" onclick="openWhatsApp()" class="contact-link">
+                                {{ contact_info.whatsapp }}
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon email-bg">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <strong>Email</strong>
+                            <a href="mailto:{{ contact_info.email }}" class="contact-link">
+                                {{ contact_info.email }}
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon location-bg">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <strong>Location</strong>
+                            <span>{{ contact_info.address }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Response Time Card -->
+                <div class="info-card mb-4">
+                    <h5 class="info-title">
+                        <i class="fas fa-clock me-2"></i>
+                        Response Times
+                    </h5>
+                    
+                    <div class="response-item">
+                        <div class="response-method">
+                            <i class="fab fa-whatsapp text-success me-2"></i>
+                            WhatsApp
+                        </div>
+                        <span class="response-time-badge success">10 mins</span>
+                    </div>
+                    
+                    <div class="response-item">
+                        <div class="response-method">
+                            <i class="fas fa-phone text-primary me-2"></i>
+                            Phone Call
+                        </div>
+                        <span class="response-time-badge primary">30 mins</span>
+                    </div>
+                    
+                    <div class="response-item">
+                        <div class="response-method">
+                            <i class="fas fa-envelope text-warning me-2"></i>
+                            Email
+                        </div>
+                        <span class="response-time-badge warning">2-4 hours</span>
+                    </div>
+                    
+                    <div class="response-item">
+                        <div class="response-method">
+                            <i class="fas fa-file-invoice text-info me-2"></i>
+                            Project Quote
+                        </div>
+                        <span class="response-time-badge info">24 hours</span>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats Card -->
+                <div class="info-card">
+                    <h5 class="info-title">
+                        <i class="fas fa-chart-line me-2"></i>
+                        Quick Stats
+                    </h5>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Common Questions</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-description">Everything you need to know about working with me</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="faq-container">
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            <h6>How long does it take to complete a website?</h6>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="faq1" class="faq-answer collapse show">
+                            <p>Simple websites take 3-5 days, while complex projects require 7-14 days. The timeline depends on your specific requirements, features needed, and project complexity. I always provide a detailed timeline during our initial consultation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            <h6>What are your payment terms?</h6>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="faq2" class="faq-answer collapse">
+                            <p>I require 50% advance payment to start the project and the remaining 50% upon delivery. I accept payments via bank transfer, PayPal, or other secure payment methods. All payment terms are clearly outlined in the project contract.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            <h6>Do you provide post-launch support?</h6>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="faq3" class="faq-answer collapse">
+                            <p>Yes! I provide 3 months of free support after project delivery. This includes minor changes, bug fixes, and technical assistance. Extended support packages are also available for ongoing maintenance needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            <h6>Do you handle domain and hosting setup?</h6>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="faq4" class="faq-answer collapse">
+                            <p>Absolutely! I can help you set up domain registration and hosting (additional costs apply), or I can work with your existing hosting provider. I'll guide you through the entire process to ensure everything is properly configured.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            <h6>Can you work with my existing design or do you create new designs?</h6>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="faq5" class="faq-answer collapse">
+                            <p>I can work both ways! If you have existing designs, I can implement them perfectly. If you need new designs, I create modern, user-friendly interfaces that align with your brand and business goals. Design consultation is included in all projects.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            <h6>What technologies do you specialize in?</h6>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="faq6" class="faq-answer collapse">
+                            <p>I specialize in modern web technologies including React, Django, Node.js, Python, JavaScript, and mobile app development. I also create games using Unity and web-based game engines. I always choose the best technology stack for your specific project needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="contact-cta-section text-white py-5">
+    <div class="container text-center">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2 class="display-6 fw-bold mb-4">Ready to Start Your Project?</h2>
+            <p class="lead mb-4">
+                Don't wait! The sooner we start, the sooner you'll have your amazing project ready.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <button class="btn btn-success btn-lg" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp me-2"></i> Quick Chat on WhatsApp
+                </button>
+                <a href="tel:{{ contact_info.phone }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced CSS Styles -->
+<style>
+/* Hero Section */
+.contact-hero-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.hero-particles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.response-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+/* Contact Method Cards */
+.contact-method-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.contact-method-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.whatsapp-icon { background: linear-gradient(135deg, #25d366, #128c7e); }
+.phone-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
+.email-icon { background: linear-gradient(135deg, #ffc107, #ff8f00); }
+.location-icon { background: linear-gradient(135deg, #17a2b8, #138496); }
+
+.contact-title {
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact-description {
+    color: #718096;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.time-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.time-badge.success { background: #d4edda; color: #155724; }
+.time-badge.primary { background: #d1ecf1; color: #0c5460; }
+.time-badge.warning { background: #fff3cd; color: #856404; }
+.time-badge.info { background: #d1ecf1; color: #0c5460; }
+
+.btn-contact {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Contact Form */
+.form-card {
+    background: white;
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.form-title {
+    color: #2d3748;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    color: #718096;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    z-index: 2;
+}
+
+.textarea-icon {
+    top: 20px;
+    transform: none;
+}
+
+.form-control {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: white;
+}
+
+.form-control:hover {
+    border-color: #cbd5e0;
+    background: white;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.form-note {
+    color: #718096;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Info Cards */
+.info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid #f1f5f9;
+}
+
+.info-title {
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.contact-info-item:last-child {
+    border-bottom: none;
+}
+
+.contact-info-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: white;
+}
+
+.phone-bg { background: linear-gradient(135deg, #667eea, #764ba2); }
+.whatsapp-bg { background: linear-gradient(135deg, #25d366, #128c7e); }
+.email-bg { background: linear-gradient(135deg, #ffc107, #ff8f00); }
+.location-bg { background: linear-gradient(135deg, #17a2b8, #138496); }
+
+.contact-info-content strong {
+    display: block;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+}
+
+.contact-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Response Time Items */
+.response-item {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.response-item:last-child {
+    border-bottom: none;
+}
+
+.response-method {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.response-time-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.response-time-badge.success { background: #d4edda; color: #155724; }
+.response-time-badge.primary { background: #d1ecf1; color: #0c5460; }
+.response-time-badge.warning { background: #fff3cd; color: #856404; }
+.response-time-badge.info { background: #cce7f0; color: #0c5460; }
+
+/* Quick Stats */
+.stat-item {
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    display: block;
+}
+
+.stat-label {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+/* FAQ Section */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    background: white;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f8fafc;
+}
+
+.faq-question h6 {
+    margin: 0;
+    font-weight: 600;
+    color: #2d3748;
+    flex: 1;
+}
+
+.faq-question i {
+    color: #667eea;
+    transition: transform 0.3s ease;
+    margin-left: 1rem;
+}
+
+.faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 2rem 1.5rem;
+    background: #f8fafc;
+}
+
+.faq-answer p {
+    color: #718096;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* CTA Section */
+.contact-cta-section {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    position: relative;
+}
+
+.contact-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+}
+
+/* Section Styling */
+.section-padding {
+    padding: 5rem 0;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0.5rem 0;
+}
+
+.section-description {
+    color: #718096;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.bg-gradient-light {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-method-card {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .form-card {
+        padding: 2rem;
+    }
+    
+    .form-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .contact-info-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    
+    .contact-info-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .response-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .faq-question {
+        padding: 1rem 1.5rem;
+    }
+    
+    .faq-answer {
+        padding: 0 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .response-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .btn-contact {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .form-control {
+        padding: 0.875rem 0.875rem 0.875rem 2.75rem;
+    }
+    
+    .input-icon {
+        left: 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .contact-method-card,
+    .form-card,
+    .info-card {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .hero-particles::before {
+        display: none;
+    }
+    
+    .btn {
+        color: #000 !important;
+        background: #f8f9fa !important;
+        border: 1px solid #dee2e6 !important;
+    }
+}
+</style>
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize AOS animations
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+    
+    // Google Maps function
+    function openGoogleMaps() {
+        const address = "{{ contact_info.address }}";
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+        window.open(mapsUrl, '_blank');
+    }
+    
+    // Form validation and enhancement
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contact-form');
+        const inputs = form.querySelectorAll('input, textarea, select');
+        
+        // Add floating label effect
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentNode.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentNode.classList.remove('focused');
+                }
+            });
+            
+            // Check if input has value on load
+            if (input.value) {
+                input.parentNode.classList.add('focused');
+            }
+        });
+        
+        // Form submission handling
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('.btn-submit');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Re-enable button after 3 seconds (in case of error)
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-rocket me-2"></i> Send Project Request <i class="fas fa-arrow-right ms-2"></i>';
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+    });
+    
+    // FAQ accordion enhancement
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function() {
+            const target = this.getAttribute('data-bs-target');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-question').forEach(q => {
+                if (q !== this) {
+                    q.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Toggle current item
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+    
+    // Phone number formatting
+    const phoneInput = document.querySelector('input[name="phone"]');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{3})(\d{0,3})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

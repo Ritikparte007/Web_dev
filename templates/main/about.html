@@ -1,0 +1,924 @@
+<!-- File: templates/main/about.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="hero-gradient text-white py-5 position-relative overflow-hidden">
+    <div class="hero-particles"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center min-vh-50">
+            <div class="col-lg-8">
+                <div class="hero-content" data-aos="fade-up">
+                    <span class="badge bg-light text-primary mb-3 px-3 py-2">Professional Developer</span>
+                    <h1 class="display-3 fw-bold mb-4">
+                        Crafting Digital 
+                        <span class="text-gradient">Excellence</span>
+                    </h1>
+                    <p class="lead mb-4 opacity-90">
+                        Passionate Web Developer with 5+ years of experience creating 
+                        stunning websites, engaging games, and powerful mobile applications. 
+                        Over 150 successful projects with 100% client satisfaction rate.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <div class="stat-item">
+                            <h3 class="fw-bold mb-0">150+</h3>
+                            <small class="opacity-75">Projects Completed</small>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="fw-bold mb-0">5+</h3>
+                            <small class="opacity-75">Years Experience</small>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="fw-bold mb-0">100%</h3>
+                            <small class="opacity-75">Client Satisfaction</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center" data-aos="fade-left">
+                <div class="hero-avatar-container">
+                    <div class="hero-avatar bg-gradient-light rounded-4 shadow-lg p-4 mx-auto">
+                        <i class="fas fa-code fa-5x text-primary mb-3"></i>
+                        <div class="floating-elements">
+                            <span class="floating-icon"><i class="fab fa-react"></i></span>
+                            <span class="floating-icon"><i class="fab fa-python"></i></span>
+                            <span class="floating-icon"><i class="fab fa-js-square"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5" data-aos="fade-right">
+                <div class="section-header mb-4">
+                    <span class="section-subtitle">What I Do Best</span>
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <p class="section-description">
+                        I specialize in cutting-edge technologies and follow industry best practices 
+                        to deliver clean, maintainable, and scalable code solutions.
+                    </p>
+                </div>
+                
+                <div class="skills-container">
+                    {% for skill in skills %}
+                    <div class="skill-item mb-4" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' '400' '500' %}">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="skill-name fw-semibold">{{ skill.name }}</span>
+                            <span class="skill-percentage badge bg-primary">{{ skill.level }}%</span>
+                        </div>
+                        <div class="progress skill-progress" style="height: 10px;">
+                            <div class="progress-bar bg-gradient-primary" role="progressbar" 
+                                 style="width: {{ skill.level }}%" data-skill="{{ skill.level }}">
+                                <span class="progress-glow"></span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-5" data-aos="fade-left">
+                <div class="section-header mb-4">
+                    <span class="section-subtitle">Why Choose Me</span>
+                    <h2 class="section-title">What I Offer</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="feature-title">Lightning Fast Delivery</h5>
+                            <p class="feature-description">Most projects completed within 7 days without compromising quality</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="feature-title">Premium Code Quality</h5>
+                            <p class="feature-description">Clean, scalable, and maintainable solutions following best practices</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="feature-title">24/7 Premium Support</h5>
+                            <p class="feature-description">Always available with quick response times for all your queries</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="feature-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h5 class="feature-title">Transparent Pricing</h5>
+                            <p class="feature-description">Fair, competitive pricing with no hidden costs or surprises</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary btn-lg btn-gradient px-5 py-3" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp me-2"></i> 
+                        Let's Collaborate
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">My Professional Path</span>
+            <h2 class="section-title">Journey Timeline</h2>
+            <p class="section-description">A glimpse into my professional development and growth milestones</p>
+        </div>
+        
+        <div class="timeline-container">
+            {% for exp in experience %}
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="{% cycle '100' '250' '400' %}">
+                <div class="timeline-marker">
+                    <span class="timeline-number">{{ forloop.counter }}</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-card">
+                        <div class="timeline-year">{{ exp.year }}</div>
+                        <h4 class="timeline-title">{{ exp.title }}</h4>
+                        <p class="timeline-description">{{ exp.description }}</p>
+                        <div class="timeline-tech-stack">
+                            <!-- Add tech stack badges if available -->
+                            {% if exp.technologies %}
+                                {% for tech in exp.technologies %}
+                                <span class="tech-badge">{{ tech }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section-padding bg-gradient-light">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">My Expertise</span>
+            <h2 class="section-title">Services I Provide</h2>
+            <p class="section-description">Comprehensive digital solutions tailored to your business needs</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h5 class="service-title">Web Development</h5>
+                    <p class="service-description">
+                        Modern, responsive websites built with latest technologies like React, Django, and Node.js
+                    </p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>SEO Optimized</li>
+                        <li>Fast Loading</li>
+                        <li>Cross-browser Compatible</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h5 class="service-title">Mobile App Development</h5>
+                    <p class="service-description">
+                        Native and cross-platform mobile applications for iOS and Android platforms
+                    </p>
+                    <ul class="service-features">
+                        <li>Native iOS/Android</li>
+                        <li>React Native</li>
+                        <li>Flutter Development</li>
+                        <li>App Store Deployment</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h5 class="service-title">Game Development</h5>
+                    <p class="service-description">
+                        Engaging 2D/3D games for web, mobile, and desktop platforms using Unity and JavaScript
+                    </p>
+                    <ul class="service-features">
+                        <li>Unity 3D Games</li>
+                        <li>HTML5 Web Games</li>
+                        <li>Mobile Gaming</li>
+                        <li>Game Design & Art</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Client Success Stories</span>
+            <h2 class="section-title">What Clients Say</h2>
+            <p class="section-description">Real feedback from satisfied clients who trusted me with their projects</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-content">
+                    <div class="stars-rating mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "Outstanding work! The website was delivered in just 5 days with 
+                        exceptional quality. Professional service and excellent customer support throughout the project."
+                    </blockquote>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h6 class="author-name">Rajesh Kumar</h6>
+                        <p class="author-title">Restaurant Owner</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-content">
+                    <div class="stars-rating mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "The mobile app was developed perfectly according to our requirements. 
+                        Exceeded expectations with clean code and intuitive design. Highly recommended!"
+                    </blockquote>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h6 class="author-name">Priya Sharma</h6>
+                        <p class="author-title">Startup Founder</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-content">
+                    <div class="stars-rating mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote class="testimonial-text">
+                        "The game development project was absolutely outstanding! 
+                        Creative approach combined with excellent technical expertise delivered amazing results."
+                    </blockquote>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h6 class="author-name">Amit Patel</h6>
+                        <p class="author-title">Gaming Studio Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="stats-section text-white py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="stat-number">150+</h3>
+                    <p class="stat-label">Projects Completed</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="stat-number">100+</h3>
+                    <p class="stat-label">Happy Clients</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="stat-number">5+</h3>
+                    <p class="stat-label">Years Experience</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="stat-number">100%</h3>
+                    <p class="stat-label">Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section text-white section-padding position-relative overflow-hidden">
+    <div class="cta-background"></div>
+    <div class="container text-center position-relative">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Ideas?</h2>
+            <p class="lead mb-5 opacity-90">
+                Let's collaborate to bring your vision to life with cutting-edge technology 
+                and exceptional design. Your success is my priority!
+            </p>
+            <div class="cta-buttons d-flex flex-wrap justify-content-center gap-4">
+                <button class="btn btn-warning btn-lg btn-glow px-5 py-3" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp me-2"></i> 
+                    Start Your Project
+                    <i class="fas fa-rocket ms-2"></i>
+                </button>
+                <a href="{% url 'main:contact' %}" class="btn btn-outline-light btn-lg px-5 py-3">
+                    <i class="fas fa-envelope me-2"></i> 
+                    Send Message
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional CSS Styles -->
+<style>
+/* Hero Section Enhancements */
+.hero-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.hero-particles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.hero-avatar-container {
+    position: relative;
+}
+
+.hero-avatar {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #667eea;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-icon:nth-child(1) { top: 10%; right: 10%; animation-delay: 0s; }
+.floating-icon:nth-child(2) { bottom: 10%; left: 10%; animation-delay: 1s; }
+.floating-icon:nth-child(3) { top: 50%; right: -10%; animation-delay: 2s; }
+
+/* Skills Section */
+.skill-progress {
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    position: relative;
+    transition: width 2s ease-in-out;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Services Section */
+.service-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.service-title {
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    color: #718096;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.service-features li {
+    padding: 0.5rem 0;
+    color: #4a5568;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Statistics Section */
+.stats-section {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    position: relative;
+}
+
+.stat-box {
+    padding: 2rem;
+    text-align: center;
+}
+
+.stat-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: #ffd700;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #667eea, #764ba2);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 3rem 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+.timeline-content {
+    width: 45%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: 55%;
+    text-align: right;
+}
+
+.timeline-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.timeline-year {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.tech-badge {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0.25rem;
+}
+
+/* Testimonials */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.stars-rating i {
+    color: #ffc107;
+    margin-right: 0.25rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.cta-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+}
+
+.btn-glow {
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
+    transform: translateY(-2px);
+}
+
+.btn-gradient {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    color: white;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Section Styling */
+.section-padding {
+    padding: 5rem 0;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0.5rem 0;
+}
+
+.section-description {
+    color: #718096;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.bg-gradient-light {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline-container::before {
+        left: 20px;
+    }
+    
+    .timeline-marker {
+        left: 20px;
+        transform: none;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+        text-align: left !important;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-avatar {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .stat-item {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .service-card {
+        padding: 2rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
+</style>
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+    
+    // Animate progress bars on scroll
+    const animateProgressBars = () => {
+        const progressBars = document.querySelectorAll('.progress-bar[data-skill]');
+        progressBars.forEach(bar => {
+            const skill = bar.getAttribute('data-skill');
+            bar.style.width = skill + '%';
+        });
+    };
+    
+    // Initialize progress bars animation
+    window.addEventListener('load', () => {
+        setTimeout(animateProgressBars, 1000);
+    });
+</script>
+
+{% endblock %}

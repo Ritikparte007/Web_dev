@@ -1,0 +1,663 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative overflow-hidden">
+    <div class="position-absolute top-0 start-0 w-100 h-100 hero-background"></div>
+    
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center min-vh-100 py-5">
+            <!-- Centered & Animated Content -->
+            <div class="col-lg-10 col-md-12 mx-auto text-center">
+                
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <span class="badge bg-success rounded-pill px-3 py-2 mb-3">⭐ Top Rated Agency</span>
+                </div>
+                
+                <h1 class="display-3 fw-bolder mb-3 text-white animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Premium IT & Development
+                    <span class="text-warning d-block">That Drives Business Growth</span>
+                </h1>
+
+                <p class="h4 text-white-75 fw-light mb-4 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    5000+ Projects Delivered Successfully
+                </p>
+                
+                <p class="lead mb-5 text-white-50 animate-fade-in-up" style="animation-delay: 0.8s;">
+                    We are a full-stack digital agency crafting bespoke Websites, Mobile Apps, and Software Solutions that deliver tangible results. Partner with us to build your vision.
+                </p>
+                
+                <div class="d-flex flex-wrap gap-2 mb-5 justify-content-center animate-fade-in-up" style="animation-delay: 1s;">
+                    <span class="badge bg-primary bg-opacity-80 px-3 py-2"><i class="fas fa-check-circle me-1"></i> Google Certified</span>
+                    <span class="badge bg-success bg-opacity-80 px-3 py-2"><i class="fas fa-check-circle me-1"></i> Microsoft Partner</span>
+                    <span class="badge bg-danger bg-opacity-80 px-3 py-2"><i class="fas fa-check-circle me-1"></i> AWS Certified</span>
+                    <span class="badge bg-info bg-opacity-80 px-3 py-2"><i class="fas fa-check-circle me-1"></i> Unity Experts</span>
+                </div>
+                
+                <div class="d-flex flex-wrap gap-3 justify-content-center animate-fade-in-up" style="animation-delay: 1.2s;">
+                    <button class="btn btn-warning btn-lg px-5 py-3 fw-bold pulse-btn" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp me-2"></i> Chat With an Expert
+                    </button>
+                    <a href="#services" class="btn btn-outline-light btn-lg px-4 py-3">
+                        <i class="fas fa-briefcase me-2"></i> Explore Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trusted By Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h6 class="text-center text-muted fw-bold text-uppercase mb-4">Trusted by Industry Leaders & Fast-Growing Startups</h6>
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
+                <h4 class="fw-bold text-secondary opacity-50">ClientLogo 1</h4>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
+                <h4 class="fw-bold text-secondary opacity-50">ClientLogo 2</h4>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
+                <h4 class="fw-bold text-secondary opacity-50">ClientLogo 3</h4>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mb-4 mb-md-0">
+                <h4 class="fw-bold text-secondary opacity-50">ClientLogo 4</h4>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mb-4 mb-md-0">
+                <h4 class="fw-bold text-secondary opacity-50">ClientLogo 5</h4>
+            </div>
+             <div class="col-6 col-md-4 col-lg-2 mb-4 mb-md-0">
+                <h4 class="fw-bold text-secondary opacity-50">ClientLogo 6</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All Services Section -->
+<section id="services" class="section-padding">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="display-5 fw-bolder">Our Core Service Offerings</h2>
+            <p class="lead text-muted">End-to-end solutions designed for performance, scale, and user delight.</p>
+        </div>
+        
+        <div class="row">
+            <!-- Website Development -->
+            <div class="col-lg-6 col-xl-4 mb-4">
+                <div class="card service-card border-0 shadow-lg h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="service-icon-wrapper bg-gradient-primary text-white me-3">
+                                <i class="fas fa-globe fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="card-title mb-1 fw-bold">Web Development</h4>
+                                <h5 class="text-primary fw-bold mb-0">Starts at ₹1,50,000</h5>
+                            </div>
+                        </div>
+                        <p class="card-text mb-3 text-muted">High-performance, custom web applications using React, Django, and Node.js for scalability and a rich user experience.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Custom Web Apps & CMS</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>E-commerce Platforms</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>API Development & Integration</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100" onclick="openWhatsApp('Web Development')">Request a Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile App Development -->
+            <div class="col-lg-6 col-xl-4 mb-4">
+                <div class="card service-card border-0 shadow-lg h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="service-icon-wrapper bg-gradient-success text-white me-3">
+                                <i class="fas fa-mobile-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="card-title mb-1 fw-bold">Mobile App Development</h4>
+                                <h5 class="text-success fw-bold mb-0">Starts at ₹2,50,000</h5>
+                            </div>
+                        </div>
+                        <p class="card-text mb-3 text-muted">Native (Swift/Kotlin) and cross-platform (Flutter/React Native) apps with stunning UI and robust backend architecture.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>iOS & Android Native</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Flutter & React Native</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>App Store & Play Store Deployment</li>
+                        </ul>
+                        <button class="btn btn-outline-success w-100" onclick="openWhatsApp('Mobile App Development')">Request a Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Development -->
+            <div class="col-lg-6 col-xl-4 mb-4">
+                <div class="card service-card border-0 shadow-lg h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="service-icon-wrapper bg-gradient-warning text-white me-3">
+                                <i class="fas fa-gamepad fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="card-title mb-1 fw-bold">Game Development</h4>
+                                <h5 class="text-warning fw-bold mb-0">Starts at ₹4,00,000</h5>
+                            </div>
+                        </div>
+                        <p class="card-text mb-3 text-muted">Engaging 2D/3D games for mobile and PC using Unity & Unreal Engine, with multiplayer support and monetization strategies.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Unity 3D/2D Development</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Real-time Multiplayer</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>In-App Purchases & Ads</li>
+                        </ul>
+                        <button class="btn btn-outline-warning w-100" onclick="openWhatsApp('Game Development')">Request a Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UI/UX Design -->
+            <div class="col-lg-6 col-xl-4 mb-4">
+                <div class="card service-card border-0 shadow-lg h-100">
+                     <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="service-icon-wrapper bg-gradient-danger text-white me-3">
+                                <i class="fas fa-paint-brush fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="card-title mb-1 fw-bold">UI/UX Design</h4>
+                                <h5 class="text-danger fw-bold mb-0">Starts at ₹80,000</h5>
+                            </div>
+                        </div>
+                        <p class="card-text mb-3 text-muted">User-centric design that blends aesthetics with functionality. We create intuitive interfaces that users love.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>User Research & Wireframing</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Interactive Prototyping (Figma)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Complete Design Systems</li>
+                        </ul>
+                        <button class="btn btn-outline-danger w-100" onclick="openWhatsApp('UI/UX Design')">Request a Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="col-lg-6 col-xl-4 mb-4">
+                <div class="card service-card border-0 shadow-lg h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="service-icon-wrapper bg-gradient-info text-white me-3">
+                                <i class="fas fa-cloud fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="card-title mb-1 fw-bold">Cloud & DevOps</h4>
+                                <h5 class="text-info fw-bold mb-0">Starts at ₹50,000/mo</h5>
+                            </div>
+                        </div>
+                        <p class="card-text mb-3 text-muted">Automate your infrastructure with our DevOps services on AWS, Azure, and GCP for enhanced reliability and faster deployments.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>CI/CD Pipeline Automation</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Infrastructure as Code (IaC)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>24/7 Monitoring & Management</li>
+                        </ul>
+                        <button class="btn btn-outline-info w-100" onclick="openWhatsApp('Cloud & DevOps')">Request a Quote</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Marketing -->
+            <div class="col-lg-6 col-xl-4 mb-4">
+                <div class="card service-card border-0 shadow-lg h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="service-icon-wrapper bg-gradient-secondary text-dark me-3">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="card-title mb-1 fw-bold">Digital Marketing</h4>
+                                <h5 class="text-secondary fw-bold mb-0">Starts at ₹40,000/mo</h5>
+                            </div>
+                        </div>
+                        <p class="card-text mb-3 text-muted">Data-driven marketing strategies including SEO, PPC, and SMM to increase your visibility and generate qualified leads.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Technical SEO & Content</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Google & Meta Ads (PPC)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Performance Analytics</li>
+                        </ul>
+                        <button class="btn btn-outline-secondary w-100" onclick="openWhatsApp('Digital Marketing')">Request a Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Process Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="display-5 fw-bolder">Our Proven Process</h2>
+            <p class="lead text-muted">We follow a structured, agile methodology to ensure your project's success from start to finish.</p>
+        </div>
+        <div class="row text-center">
+            <!-- Step 1 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="process-card">
+                    <div class="process-icon bg-primary-soft text-primary">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="process-step">01</div>
+                    <h5 class="fw-bold mt-3">Discover & Plan</h5>
+                    <p class="text-muted">We start with a deep dive into your goals, audience, and requirements to create a detailed project roadmap.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="process-card">
+                    <div class="process-icon bg-success-soft text-success">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <div class="process-step">02</div>
+                    <h5 class="fw-bold mt-3">Design & Develop</h5>
+                    <p class="text-muted">Our team designs stunning UIs and writes clean, scalable code, keeping you updated with regular progress reports.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="process-card">
+                    <div class="process-icon bg-warning-soft text-warning">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <div class="process-step">03</div>
+                    <h5 class="fw-bold mt-3">Test & Deploy</h5>
+                    <p class="text-muted">Rigorous testing across devices and scenarios ensures a bug-free product before a seamless deployment to live servers.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="process-card">
+                    <div class="process-icon bg-info-soft text-info">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="process-step">04</div>
+                    <h5 class="fw-bold mt-3">Support & Grow</h5>
+                    <p class="text-muted">Our partnership doesn't end at launch. We provide ongoing support, maintenance, and strategies for future growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="section-padding">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="display-5 fw-bolder">Featured Case Studies</h2>
+            <p class="lead text-muted">A glimpse into the successful partnerships we've built.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 portfolio-card">
+                    <div class="portfolio-img-wrapper bg-gradient-primary">
+                        <i class="fas fa-utensils text-white"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-primary-soft text-primary mb-2">Web + Mobile App</span>
+                        <h5 class="card-title fw-bold">FoodieHub Restaurant Platform</h5>
+                        <p class="text-muted mb-3">A complete ordering system that boosted online orders by 400% for a multi-location restaurant chain.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">React.js</span>
+                            <span class="badge bg-light text-dark">React Native</span>
+                            <span class="badge bg-light text-dark">Node.js</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4 pt-0 d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">✅ 400% Order Growth</span>
+                        <span class="text-warning fw-bold">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 portfolio-card">
+                    <div class="portfolio-img-wrapper bg-gradient-success">
+                        <i class="fas fa-graduation-cap text-white"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-success-soft text-success mb-2">LMS Platform</span>
+                        <h5 class="card-title fw-bold">EduSmart Learning Platform</h5>
+                        <p class="text-muted mb-3">A full-featured EdTech platform with live streaming and AI assessments, serving over 10,000 active students.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">Django</span>
+                            <span class="badge bg-light text-dark">Flutter</span>
+                            <span class="badge bg-light text-dark">PostgreSQL</span>
+                        </div>
+                    </div>
+                     <div class="card-footer bg-white border-0 p-4 pt-0 d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">✅ 10k+ Active Users</span>
+                        <span class="text-warning fw-bold">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 portfolio-card">
+                     <div class="portfolio-img-wrapper bg-gradient-warning">
+                        <i class="fas fa-gamepad text-white"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-warning-soft text-warning mb-2">3D Multiplayer Game</span>
+                        <h5 class="card-title fw-bold">CricketMania Championship</h5>
+                        <p class="text-muted mb-3">A 3D cricket game with real-time multiplayer that achieved over 250,000 downloads in the first 4 months.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">Unity 3D</span>
+                            <span class="badge bg-light text-dark">Photon</span>
+                            <span class="badge bg-light text-dark">Firebase</span>
+                        </div>
+                    </div>
+                     <div class="card-footer bg-white border-0 p-4 pt-0 d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">✅ 250k+ Downloads</span>
+                        <span class="text-warning fw-bold">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ Section -->
+<section id="faq" class="section-padding bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="display-5 fw-bolder">Frequently Asked Questions</h2>
+            <p class="lead text-muted">Have questions? We've got answers. Here are some of the most common queries from our clients.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is the typical cost for a website or mobile app?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The cost varies greatly depending on the complexity, features, and technology stack. A professional custom website typically starts around <strong>₹1,50,000</strong>, while a mobile app for both iOS and Android starts from <strong>₹2,50,000</strong>. We provide a detailed, itemized quote after our initial discovery call.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How long does a project usually take?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                A standard website can take 4-6 weeks, while a complex web application or mobile app can take 3-6 months. We follow an agile development process with milestones, so you'll see progress continuously. We will provide a detailed timeline in our project proposal.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Who will own the code and design assets after the project is completed?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <strong>You do.</strong> Upon final payment, we transfer all intellectual property, including the source code, design files, and any other project assets, to you. You will have 100% ownership.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                What kind of post-launch support do you offer?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We offer a complimentary 3-month support period after launch to fix any potential bugs. Beyond that, we provide flexible annual maintenance contracts (AMCs) for ongoing updates, security monitoring, and feature enhancements to ensure your digital asset remains in top condition.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="bg-gradient-primary text-white section-padding">
+    <div class="container text-center">
+        <h2 class="display-4 fw-bolder mb-4">Ready to Build Your Next Big Idea?</h2>
+        <p class="lead mb-5">
+            Let's turn your vision into a reality. Get a free, no-obligation consultation with our experts today.
+        </p>
+        
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+            <button class="btn btn-warning btn-lg px-5 py-3 fw-bold pulse-btn" onclick="openWhatsApp('Project Consultation')">
+                <i class="fab fa-whatsapp me-2"></i> Get FREE Consultation Now
+            </button>
+            <a href="{% url 'main:contact' %}" class="btn btn-outline-light btn-lg px-5 py-3">
+                <i class="fas fa-calendar-alt me-2"></i> Schedule a Call
+            </a>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 col-6 mb-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-money-bill-wave me-3 fa-lg"></i>
+                    <div>
+                        <strong>Transparent Pricing</strong><br>
+                        <small>No Hidden Costs</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-clock me-3 fa-lg"></i>
+                    <div>
+                        <strong>On-Time Delivery</strong><br>
+                        <small>Guaranteed Milestones</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-code me-3 fa-lg"></i>
+                    <div>
+                        <strong>Full Ownership</strong><br>
+                        <small>You Own the Code</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-headset me-3 fa-lg"></i>
+                    <div>
+                        <strong>Agile Support</strong><br>
+                        <small>Dedicated Assistance</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        --gradient-warning: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+        --gradient-info: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --gradient-danger: linear-gradient(135deg, #f43b47 0%, #453a94 100%);
+        --gradient-secondary: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        --gradient-dark: linear-gradient(135deg, #303030 0%, #505050 100%);
+        
+        --bs-primary-soft: rgba(102, 126, 234, 0.1);
+        --bs-success-soft: rgba(17, 153, 142, 0.1);
+        --bs-warning-soft: rgba(245, 175, 25, 0.1);
+        --bs-info-soft: rgba(79, 172, 254, 0.1);
+        --bs-danger-soft: rgba(244, 59, 71, 0.1);
+    }
+    .bg-primary-soft { background-color: var(--bs-primary-soft); }
+    .bg-success-soft { background-color: var(--bs-success-soft); }
+    .bg-warning-soft { background-color: var(--bs-warning-soft); }
+    .bg-info-soft { background-color: var(--bs-info-soft); }
+    .bg-danger-soft { background-color: var(--bs-danger-soft); }
+    
+    .bg-gradient-primary { background: var(--gradient-primary); }
+    .bg-gradient-success { background: var(--gradient-success); }
+    .bg-gradient-warning { background: var(--gradient-warning); }
+    .bg-gradient-info { background: var(--gradient-info); }
+    .bg-gradient-danger { background: var(--gradient-danger); }
+    .bg-gradient-secondary { background: var(--gradient-secondary); }
+    .bg-gradient-dark { background: var(--gradient-dark); }
+
+    body {
+        scroll-behavior: smooth;
+    }
+    
+    .hero-section {
+        background: #6f42c1; /* Fallback color */
+    }
+    .hero-background {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-size: 200% 200%; /* For gradient animation */
+        opacity: 0.95;
+        animation: gradient-animation 15s ease infinite; /* New animation */
+    }
+    .hero-background::after {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path fill="%23ffffff" fill-opacity="0.04" d="M-100,100 l200,-200 200,200 -200,200 z M100,300 l200,-200 200,200 -200,200 z M-100,500 l200,-200 200,200 -200,200 z M100,700 l200,-200 200,200 -200,200 z M-100,900 l200,-200 200,200 -200,200 z M300,100 l200,-200 200,200 -200,200 z M500,300 l200,-200 200,200 -200,200 z M300,500 l200,-200 200,200 -200,200 z M500,700 l200,-200 200,200 -200,200 z M300,900 l200,-200 200,200 -200,200 z M700,100 l200,-200 200,200 -200,200 z M900,300 l200,-200 200,200 -200,200 z M700,500 l200,-200 200,200 -200,200 z M900,700 l200,-200 200,200 -200,200 z M700,900 l200,-200 200,200 -200,200 z"/></svg>');
+    }
+    
+    .section-padding { padding: 100px 0; }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    .section-title h2 {
+        position: relative;
+        display: inline-block;
+    }
+    .section-title h2::after {
+        content: ''; position: absolute; bottom: -15px; left: 50%;
+        transform: translateX(-50%); width: 80px; height: 4px;
+        background: var(--gradient-primary); border-radius: 3px;
+    }
+
+    .card { border-radius: 20px; border: none; }
+    .btn { border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    
+    .service-card, .portfolio-card { transition: all 0.4s ease; }
+    .service-card:hover, .portfolio-card:hover {
+        transform: translateY(-15px) scale(1.03);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    }
+    .service-icon-wrapper {
+        width: 70px; height: 70px; border-radius: 20px;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .process-card {
+        padding: 30px; background: white; border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        height: 100%; position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+    .process-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .process-icon {
+        width: 70px; height: 70px; border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.5rem;
+    }
+    .process-step {
+        position: absolute; top: 15px; right: 25px;
+        font-size: 3rem; font-weight: 900;
+        color: rgba(0,0,0,0.05);
+    }
+
+    .portfolio-img-wrapper {
+        height: 250px; display: flex; align-items: center; justify-content: center;
+    }
+    .portfolio-img-wrapper i {
+        font-size: 5rem; opacity: 0.8;
+    }
+    
+    .accordion-item {
+        border-radius: 15px !important;
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+        overflow: hidden;
+    }
+    .accordion-button {
+        background: #fff;
+        color: #212529;
+    }
+    .accordion-button:not(.collapsed) {
+        background: var(--bs-primary-soft);
+        color: var(--bs-primary);
+        box-shadow: none;
+    }
+    .accordion-button:focus { box-shadow: none; }
+
+    .pulse-btn { animation: pulse 2s infinite; }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(245, 175, 25, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(245, 175, 25, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(245, 175, 25, 0); }
+    }
+
+    /* --- NEW ANIMATIONS --- */
+    .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out;
+        animation-fill-mode: both; /* Keeps the element visible after animation */
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    @media (max-width: 768px) {
+        .display-3 { font-size: 2.5rem; }
+        .display-4 { font-size: 2rem; }
+        .display-5 { font-size: 1.8rem; }
+        .hero-section { min-height: auto; }
+        .section-padding { padding: 60px 0; }
+        .service-card:hover, .portfolio-card:hover { transform: translateY(-5px) scale(1.01); }
+    }
+</style>
+{% endblock %}
